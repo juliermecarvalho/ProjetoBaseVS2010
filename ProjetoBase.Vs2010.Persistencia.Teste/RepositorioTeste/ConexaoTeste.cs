@@ -2,6 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using ProjetoBase.Vs2010.Dominio.Entidades;
+using ProjetoBase.Vs2010.Dominio.Enumerados;
 using ProjetoBase.Vs2010.Dominio.Lib;
 using ProjetoBase.Vs2010.Dominio.Repositorios;
 using ProjetoBase.Vs2010.Infra;
@@ -29,7 +30,7 @@ namespace ProjetoBase.Vs2010.Persistencia.Teste.RepositorioTeste
         {
             using (IUnidadeDeTrabalho unidadeDeTrabalho = Fabrica.Instancia.Obter<IUnidadeDeTrabalho>(StringConexao))
             {
-                (unidadeDeTrabalho as UnidadeDeTrabalho).ExcluirBanco();
+                //(unidadeDeTrabalho as UnidadeDeTrabalho).ExcluirBanco();
             }
         }
 
@@ -37,8 +38,8 @@ namespace ProjetoBase.Vs2010.Persistencia.Teste.RepositorioTeste
         public void Crud_Pessoa()
         {
             this.Salvar_Pessoa();
-            this.Listar_Pessoa();
-            this.Deletar_Pessoa();
+            //this.Listar_Pessoa();
+            //this.Deletar_Pessoa();
         }
 
         public void Salvar_Pessoa()
@@ -48,13 +49,14 @@ namespace ProjetoBase.Vs2010.Persistencia.Teste.RepositorioTeste
                 IRepositorioDePessoas repositorioDePessoas =
                     Fabrica.Instancia.Obter<IRepositorioDePessoas>(unidadeDeTrabalho);
 
-                Pessoa pessoa = new Pessoa { Nome = "Teste" };
+                Pessoa pessoa = new Pessoa { Nome = "Teste", Sexo = Sexo.Masculino };
 
-                repositorioDePessoas.Salvar(pessoa);
-                unidadeDeTrabalho.Commit();
+                var p1 = repositorioDePessoas.Obter(1);
+                var p2 = repositorioDePessoas.Obter(2);
+                //unidadeDeTrabalho.Commit();
 
-                Assert.IsTrue(pessoa.Id > 0);
-                this._id = pessoa.Id;
+                //Assert.IsTrue(pessoa.Id > 0);
+                this._id = p1.Id;
             }
         }
 

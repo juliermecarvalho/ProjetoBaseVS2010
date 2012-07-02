@@ -7,6 +7,7 @@ namespace ProjetoBase.Vs2010.Persistencia.Mapeamentos
     {
         public MapPessoa()
         {
+            this.Property(p => p.SexoInt);
             this.ToTable("Pessoas");
         }
     }
