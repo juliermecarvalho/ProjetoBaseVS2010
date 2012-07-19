@@ -27,17 +27,6 @@ namespace ProjetoBase.Vs2010.Infra
             this.Kernel = new StandardKernel(persistencia);
         }
 
-        /// <summary>
-        /// esse metódo só existe para os teste!!
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="stringDeConexao"></param>
-        /// <returns></returns>
-        internal T Obter<T>(string stringDeConexao)
-        {
-            return this.Kernel.Get<T>(new ConstructorArgument("stringDeConexao", stringDeConexao));
-        }
-
         public T Obter<T>()
         {
             return this.Kernel.Get<T>();

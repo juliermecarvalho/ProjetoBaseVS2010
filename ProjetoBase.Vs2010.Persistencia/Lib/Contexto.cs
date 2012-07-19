@@ -9,7 +9,7 @@ namespace ProjetoBase.Vs2010.Persistencia.Lib
         public DbSet<Pessoa> Pessoas { get; set; }
 
         public Contexto()
-            : base(@"Data Source=.\sqlexpress;Initial Catalog=Base;Integrated Security=True")
+            : base("Base")
         {
         }
 

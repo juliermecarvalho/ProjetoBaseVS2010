@@ -15,7 +15,7 @@ namespace ProjetoBase.Vs2010.Persistencia.Lib
         /// Atenção contrutor usado só para os testes
         /// </summary>
         /// <param name="stringDeConexao"></param>
-        internal UnidadeDeTrabalho(string stringDeConexao)
+        public UnidadeDeTrabalho(string stringDeConexao)
         {
             Contexto = new Contexto(stringDeConexao);
         }
